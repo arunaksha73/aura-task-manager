@@ -3744,141 +3744,238 @@
         }
 
         /* ════ RESPONSIVE (TAB & MOBILE) ════════════════════════════════════════════ */
-        
-        @media (max-width: 500px) {
+
+        @media (max-width: 600px) {
+            body {
+                align-items: flex-start !important;
+                justify-content: flex-start !important;
+                overflow: auto !important;
+            }
+
             .frame {
                 width: 100vw;
                 height: 100vh;
+                min-height: 100vh;
                 border-radius: 0;
                 border: none;
                 flex-direction: column;
+                display: flex;
             }
+
             .sidebar {
                 width: 100%;
-                height: 60px;
+                height: 65px;
                 flex-direction: row;
-                padding: calc(6px + env(safe-area-inset-top, 0px)) 12px 6px;
+                padding: 0 12px;
                 overflow-x: auto;
                 overflow-y: hidden;
                 border-right: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                border-bottom: 2px solid rgba(0, 0, 0, 0.05);
                 align-items: center;
                 justify-content: flex-start;
-                gap: 8px;
+                gap: 10px;
                 flex-shrink: 0;
-                background: #fff;
-                position: sticky;
-                top: 0;
-                z-index: 1000;
+                background: #ffffff !important;
+                position: relative;
+                z-index: 9999;
+                display: flex !important;
             }
-            .sidebar::-webkit-scrollbar { display: none; }
-            .logo-name, .sidebar-section, .sidebar-footer, .nav-badge, .nav-ripple {
+
+            .sidebar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .logo-name,
+            .sidebar-section,
+            .sidebar-footer,
+            .nav-badge,
+            .nav-ripple {
                 display: none !important;
             }
-            .logo { margin-bottom: 0; margin-right: 6px; padding: 0; }
-            .logo-icon { width: 34px; height: 34px; font-size: 16px; border-radius: 10px; }
-            .nav-item {
-                flex: 0 0 42px;
-                width: 42px;
-                height: 42px;
+
+            .logo {
+                margin: 0;
+                margin-right: 12px;
                 padding: 0;
-                margin-bottom: 0;
+                display: flex !important;
+            }
+
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+                border-radius: 12px;
+            }
+
+            .nav-item {
+                flex: 0 0 46px;
+                width: 46px;
+                height: 46px;
+                padding: 0;
+                margin: 0;
                 font-size: 0;
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
-                border-radius: 12px;
+                border-radius: 14px;
                 transition: none !important;
-                background: #f4f4f7;
+                background: #f8f8fa;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             }
+
             .nav-item .nav-icon {
-                font-size: 20px;
+                font-size: 22px;
                 margin: 0;
                 display: block !important;
                 opacity: 1 !important;
                 color: #1a1a1a !important;
             }
+
             .nav-item.active {
                 background: #1a1a1a !important;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             }
+
             .nav-item.active .nav-icon {
                 color: #fff !important;
             }
-            .int-row { display: none; }
-            
+
+            .int-row {
+                display: none !important;
+            }
+
             .main {
                 overflow-y: auto;
                 flex: 1;
                 display: block;
-                padding: 10px;
+                padding: 15px 10px;
                 -webkit-overflow-scrolling: touch;
+                background: #f0f0f5;
             }
+
             .topbar {
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 10px 5px 15px;
-                gap: 12px;
+                gap: 15px;
             }
+
             .topbar-right {
                 width: 100%;
                 justify-content: flex-start;
-                gap: 6px;
+                gap: 8px;
                 flex-wrap: wrap;
             }
+
             .greeting {
-                font-size: 24px;
+                font-size: 26px;
                 padding-left: 2px;
+                margin-bottom: 5px;
             }
-            .time-chip { display: none; }
+
+            .time-chip {
+                display: none !important;
+            }
+
             .create-btn {
                 flex: 1;
                 justify-content: center;
-                height: 42px;
-                font-size: 13px;
-                border-radius: 12px;
-                padding: 0 15px;
+                height: 44px;
+                font-size: 14px;
+                border-radius: 14px;
+                padding: 0 20px;
+                background: #1a1a1a !important;
             }
-            
+
             .grid {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
                 padding: 10px 4px;
                 overflow: visible;
                 height: auto;
+                -webkit-overflow-scrolling: touch;
             }
+
             .tile {
                 width: 100%;
                 min-height: auto;
                 flex: none;
             }
-            .t-overall, .t-tasks {
+
+            .t-overall,
+            .t-tasks {
                 height: auto;
             }
+
             .tasks-scroll {
                 padding-bottom: 12px;
             }
-            
+
             /* Page specific mobile fixes */
-            .gym-top-cards { grid-template-columns: repeat(2, 1fr); }
-            .gym-body { grid-template-columns: 1fr; }
-            .docs-grid { grid-template-columns: 1fr; }
-            .stats-cards { grid-template-columns: 1fr 1fr; }
-            .stats-row { grid-template-columns: 1fr; }
-            .blog-row { grid-template-columns: 1fr; }
-            .blog-projects-grid { grid-template-columns: 1fr; }
-            .cal-page { padding: 10px; }
-            .tp-header { flex-direction: column; align-items: flex-start; gap: 12px; }
-            .tp-filters { overflow-x: auto; width: 100%; padding-bottom: 5px; }
-            .tp-filters::-webkit-scrollbar { display: none; }
-            .tp-filter { flex-shrink: 0; }
-            
+            .gym-top-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gym-body {
+                grid-template-columns: 1fr;
+            }
+
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-row {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .blog-projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cal-page {
+                padding: 10px;
+            }
+
+            .tp-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .tp-filters {
+                overflow-x: auto;
+                width: 100%;
+                padding-bottom: 5px;
+            }
+
+            .tp-filters::-webkit-scrollbar {
+                display: none;
+            }
+
+            .tp-filter {
+                flex-shrink: 0;
+            }
+
             .modal {
                 width: calc(100% - 30px) !important;
                 margin: 0 15px;
                 padding: 20px;
             }
-            .overlay-bg { padding-top: 40px; }
+
+            .overlay-bg {
+                padding-top: 40px;
+            }
         }
     </style>
 </head>
@@ -3950,7 +4047,7 @@
 
             <!-- TOP BAR -->
             <div class="topbar">
-                <div class="greeting">Hi, <em id="user-name">Flow State</em>!</div>
+                <div class="greeting">Hi, <em id="user-name">Flow State</em></div>
                 <div class="topbar-right">
                     <div class="time-chip" id="clock">
                         <span class="clock-seg" id="clock-h">00</span><span class="clock-colon"
@@ -6362,7 +6459,7 @@
                 const rst = document.getElementById('sp-r-' + i).checked;
                 weekSplit[i].muscles = mus || 'Rest Day';
                 weekSplit[i].rest = rst;
-                if(rst) weekSplit[i].color = '#e0e0e0';
+                if (rst) weekSplit[i].color = '#e0e0e0';
             }
             renderSplit();
             closeSplitModal();
