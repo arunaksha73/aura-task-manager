@@ -2595,6 +2595,7 @@
             margin-bottom: 6px;
             background: linear-gradient(90deg, #a78bfa, #f472b6);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -2660,6 +2661,7 @@
             font-weight: 700;
             background: linear-gradient(90deg, #7c3aed, #f472b6);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 3px;
         }
@@ -2729,6 +2731,7 @@
             font-weight: 700;
             background: linear-gradient(90deg, #7c3aed, #f472b6);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -3558,6 +3561,7 @@
         .blog-hero-title span {
             background: linear-gradient(90deg, #a78bfa, #f472b6);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -3741,82 +3745,116 @@
 
         /* ════ RESPONSIVE (TAB & MOBILE) ════════════════════════════════════════════ */
         
-        @media (max-width: 1024px) {
+        /* ════ RESPONSIVE (TAB & MOBILE) ════════════════════════════════════════════ */
+        
+        @media (max-width: 850px) {
             .frame {
                 width: 100vw;
                 height: 100vh;
                 border-radius: 0;
                 border: none;
-            }
-            .sidebar {
-                width: 76px;
-                padding: 22px 10px 18px;
-                align-items: center;
-            }
-            .logo-name, .sidebar-section, .int-row span, .task-count {
-                display: none;
-            }
-            .logo { gap: 0; margin-bottom: 30px; }
-            .nav-item {
-                font-size: 0;
-                justify-content: center;
-                padding: 12px;
-                width: 100%;
-            }
-            .nav-item .nav-icon {
-                font-size: 18px;
-                margin: 0;
-            }
-            .int-row { justify-content: center; width: 100%; border-radius: 12px; padding: 12px; }
-            .int-icon { margin: 0; }
-            
-            .dash-grid-top { grid-template-columns: repeat(2, 1fr); }
-            .split-2 { grid-template-columns: 1fr; }
-            .cal-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        @media (max-width: 650px) {
-            .frame {
                 flex-direction: column;
             }
             .sidebar {
                 width: 100%;
                 height: auto;
                 flex-direction: row;
-                padding: 10px 15px;
+                padding: 10px 14px;
                 overflow-x: auto;
                 overflow-y: hidden;
                 border-right: none;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.07);
                 align-items: center;
                 justify-content: flex-start;
-                gap: 10px;
+                gap: 8px;
+                flex-shrink: 0;
+                background: #fff;
             }
-            .sidebar::-webkit-scrollbar { height: 0; width: 0; display: none; }
+            .sidebar::-webkit-scrollbar { display: none; }
+            .logo-name, .sidebar-section, .sidebar-footer, .nav-badge {
+                display: none;
+            }
             .logo { margin-bottom: 0; margin-right: 15px; }
-            .nav-item { flex: 0 0 auto; width: auto; padding: 10px 14px; }
-            .main { padding: 15px; overflow-x: hidden; }
-
-            .dash-grid-top, .metrics-grid, .docs-grid, .blog-skills-grid, .blog-projects-grid {
-                grid-template-columns: 1fr;
+            .nav-item {
+                flex: 0 0 auto;
+                width: auto;
+                padding: 10px;
+                font-size: 0;
             }
-            .blog-row, .gym-body {
-                grid-template-columns: 1fr !important;
+            .nav-item .nav-icon {
+                font-size: 20px;
+                margin: 0;
+                opacity: 0.9;
             }
-
-            .task-cols { flex-direction: column; gap: 20px; }
-            .task-col { max-width: none; height: auto; min-height: 200px; border-right: none; border-bottom: 1px dashed rgba(0,0,0,0.1); padding-bottom: 20px;}
-            .task-col:last-child { border-bottom: none; }
+            .int-row { display: none; }
             
-            .modal { width: 95% !important; margin: 10px auto; }
-            .focus-clock { font-size: 50px; }
+            .main {
+                overflow-y: auto;
+                flex: 1;
+                display: block;
+            }
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 20px 10px;
+                gap: 15px;
+            }
+            .topbar-right {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            .greeting {
+                font-size: 22px;
+            }
+            .time-chip { display: none; }
+            .create-btn {
+                flex: 1;
+                justify-content: center;
+                height: 40px;
+            }
             
-            .cal-grid { grid-template-columns: repeat(3, 1fr); }
-            .cal-header { font-size: 14px; flex-direction: column; gap: 10px; align-items: flex-start;}
+            .grid {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                overflow: visible;
+                height: auto;
+            }
+            .tile {
+                width: 100%;
+                min-height: auto;
+                flex: none;
+            }
+            .t-overall, .t-tasks {
+                height: auto;
+            }
+            .tasks-scroll {
+                padding-bottom: 10px;
+            }
             
-            .top-bar { flex-direction: column; gap: 14px; align-items: flex-start; }
-            .search-box { width: 100%; }
-            .blog-hero-title { font-size: 18px; }
+            /* Page specific mobile fixes */
+            .gym-top-cards { grid-template-columns: repeat(2, 1fr); }
+            .gym-body { grid-template-columns: 1fr; }
+            .docs-grid { grid-template-columns: 1fr; }
+            .stats-cards { grid-template-columns: 1fr 1fr; }
+            .stats-row { grid-template-columns: 1fr; }
+            .blog-row { grid-template-columns: 1fr; }
+            .blog-projects-grid { grid-template-columns: 1fr; }
+            .cal-page { padding: 10px; }
+            .tp-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .tp-filters { overflow-x: auto; width: 100%; padding-bottom: 5px; }
+            .tp-filters::-webkit-scrollbar { display: none; }
+            .tp-filter { flex-shrink: 0; }
+            
+            .modal {
+                width: calc(100% - 30px) !important;
+                margin: 0 15px;
+                padding: 20px;
+            }
+            .overlay-bg { padding-top: 40px; }
         }
     </style>
 </head>
@@ -4982,6 +5020,8 @@
             }
 
             closeAllPanels();
+            const mainEl = document.querySelector('.main');
+            if (mainEl) mainEl.scrollTop = 0;
 
             // Page-specific renders
             if (page === 'calendar') renderCalendar();
