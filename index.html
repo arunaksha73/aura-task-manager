@@ -3745,7 +3745,7 @@
 
         /* ════ RESPONSIVE (TAB & MOBILE) ════════════════════════════════════════════ */
         
-        @media (max-width: 850px) {
+        @media (max-width: 600px) {
             .frame {
                 width: 100vw;
                 height: 100vh;
@@ -3757,14 +3757,14 @@
                 width: 100%;
                 height: auto;
                 flex-direction: row;
-                padding: calc(10px + env(safe-area-inset-top, 0px)) 15px 10px;
+                padding: calc(8px + env(safe-area-inset-top, 0px)) 12px 8px;
                 overflow-x: auto;
                 overflow-y: hidden;
                 border-right: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
                 align-items: center;
                 justify-content: flex-start;
-                gap: 10px;
+                gap: 6px;
                 flex-shrink: 0;
                 background: #fff;
                 position: sticky;
@@ -3775,22 +3775,25 @@
             .logo-name, .sidebar-section, .sidebar-footer, .nav-badge {
                 display: none;
             }
-            .logo { margin-bottom: 0; margin-right: 10px; }
+            .logo { margin-bottom: 0; margin-right: 8px; padding: 0; }
+            .logo-icon { width: 36px; height: 36px; font-size: 16px; }
             .nav-item {
                 flex: 0 0 auto;
-                width: 40px;
-                height: 40px;
+                width: 44px;
+                height: 44px;
                 padding: 0;
                 margin-bottom: 0;
                 font-size: 0;
-                display: flex;
+                display: flex !important;
                 align-items: center;
                 justify-content: center;
-                border-radius: 12px;
+                border-radius: 14px;
             }
             .nav-item .nav-icon {
-                font-size: 19px;
+                font-size: 22px;
                 margin: 0;
+                display: block;
+                opacity: 1;
             }
             .int-row { display: none; }
             
@@ -3798,14 +3801,15 @@
                 overflow-y: auto;
                 flex: 1;
                 display: block;
-                padding: 15px;
+                padding: 12px;
+                -webkit-overflow-scrolling: touch;
             }
             .topbar {
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 10px 5px 20px;
-                gap: 15px;
-                margin-bottom: 10px;
+                padding: 12px 4px 18px;
+                gap: 12px;
+                margin-bottom: 5px;
             }
             .topbar-right {
                 width: 100%;
@@ -3814,21 +3818,22 @@
                 flex-wrap: wrap;
             }
             .greeting {
-                font-size: 24px;
-                padding-left: 5px;
+                font-size: 26px;
+                padding-left: 2px;
             }
             .time-chip { display: none; }
             .create-btn {
                 flex: 1;
                 justify-content: center;
-                height: 42px;
+                height: 44px;
+                font-size: 14px;
             }
             
             .grid {
                 display: flex;
                 flex-direction: column;
-                gap: 15px;
-                padding: 15px;
+                gap: 12px;
+                padding: 4px;
                 overflow: visible;
                 height: auto;
             }
@@ -5012,11 +5017,9 @@
             const navEl = document.getElementById('nav-' + page);
             if (navEl) {
                 navEl.classList.add('active');
-                // fire click animation
-                navEl.classList.remove('nav-clicking');
-                void navEl.offsetWidth; // reflow
+                // fast click animation
                 navEl.classList.add('nav-clicking');
-                setTimeout(() => navEl.classList.remove('nav-clicking'), 420);
+                setTimeout(() => navEl.classList.remove('nav-clicking'), 250);
             }
 
             if (page === 'settings') {
